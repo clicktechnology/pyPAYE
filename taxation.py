@@ -341,17 +341,18 @@ class Taxation:
         net_pay_monthly = (salary / 12) - paye - sl - eeni
 
         print("Tax Receipt for tax year {}".format(self.tax_table['tax-year']))
-        print("------------------------------------------")
+        print("----------------------------------------------")
         print("Gross Annual Pay                 : £{:10,.2f}".format(salary))
         print("Gross Monthly Pay                : £{:10,.2f}".format(salary / 12))
         print("PAYE                   (monthly) : £{:10,.2f}".format(paye))
         print("Student Loans PLAN {}   (monthly) : £{:10,.2f}".format(plan, sl))
         print("Employee NI            (monthly) : £{:10,.2f}".format(eeni))
         print("Employer NI            (monthly) : £{:10,.2f}".format(erni))
-        print("------------------------------------------")
+        print("----------------------------------------------")
         print("Net Monthly Pay        (monthly) : £{:10,.2f}".format(net_pay_monthly))
-        print("------------------------------------------")
-        print("Total Tax              (monthly) : £{:10,.2f}\n".format(paye + eeni + erni + sl))
+        print("----------------------------------------------")
+        print("Total Tax              (monthly) : £{:10,.2f}".format(paye + eeni + erni + sl))
+        print("\n")
         return
 
 
