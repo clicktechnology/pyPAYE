@@ -99,16 +99,17 @@ The result shown is..
 
 ```
 Tax Receipt for tax year 2018-2019
-------------------------------------------
+----------------------------------------------
 Gross Annual Pay                 : £ 50,000.00
 Gross Monthly Pay                : £  4,166.67
 PAYE                   (monthly) : £    696.65
 Student Loans PLAN 0   (monthly) : £      0.00
 Employee NI            (monthly) : £    385.34
 Employer NI            (monthly) : £    478.12
-------------------------------------------
+----------------------------------------------
 Net Monthly Pay        (monthly) : £  3,084.68
-------------------------------------------
-Total Tax              (monthly) : £  1,560.
+----------------------------------------------
+Total Tax              (monthly) : £  1,560.11
+
 ```
 In the root of the package, the file called test.py contains additional calculations and examples of the calculation of Employer's NI, Employee's NI and Student Loan Repayments for both Plan 1 and Plan 2 repayment options.  If you have any problems, feel free to contact me at askaquestion@click-technology.com
