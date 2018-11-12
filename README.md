@@ -1,4 +1,4 @@
-# pyPAYE - A PAYE and NI Caluclator class for Python.
+# paye-calculator
 A Python class which calculates PAYE, National Insurance (N.I.), Employer's N.I. and Student Loan Repayment Deductions for the U.K. tax system for 2016-2017, 2017-2018 and 2018-2019.
  
 # Installation
@@ -31,7 +31,7 @@ git clone https://github.com/clicktechnology/pyPAYE.git
 and press return.  The paye module is downloaded to a subdirectory called paye-calculator.  Go straight there by typing..
 
 ```
-cd pyPAYE
+cd paye-calculator
 ```
 
 Now the class has been downloaded, you can install it by typing
@@ -118,3 +118,13 @@ PAYE on £35,000 annually is £4,800.00 per annum.
 ```
 
 In the root of the package, the file called test.py contains additional calculations and examples of the calculation of Employer's NI, Employee's NI and Student Loan Repayments for both Plan 1 and Plan 2 repayment options.  If you have any problems, feel free to contact me at askaquestion@click-technology.com
+
+The MIT License
+------------------------------------------------------------------
+Copyright 2018 Morgan Conlon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

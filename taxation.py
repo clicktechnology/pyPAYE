@@ -81,19 +81,21 @@ class Taxation:
             # https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2016-to-2017#student-loan-recovery
 
             'annual_repayment_threshold_plan_1': [17495.00, 17775.00, 18330.00],  # From tax threshold table, Plan 1.
-            'annual_repayment_threshold_plan_2': [21000.00, 21000.00, 25000.00 ],  # From tax threshold table, Plan 2.
+            'annual_repayment_threshold_plan_2': [21000.00, 21000.00, 25000.00],  # From tax threshold table, Plan 2.
             'sl_interest_rate': [0.09, 0.09, 0.09]  # 9% for 2016-2017, 2017-2018, 2018-2019
         }
         self.hours_per_week = hours_per_week
         if not 'tax_year' in kwargs:  # If a value for tax_year is not given, assume it is '2016-2017' for backwards compatibility.
             kwargs = {'tax_year': '2016-2017'}
+        else:
+            kwargs = {'tax_year': kwargs['tax_year']}
+
         self.tax_table = self.set_rates_and_values(**kwargs)
 
-        if not 'student_loan_plan' in (0,1,2):
+        if not 'student_loan_plan' in (0, 1, 2):
             self.student_loan_plan = 0
         else:
             self.student_loan_plan = student_loan_plan
-
 
     def set_rates_and_values(self, tax_year):
 
@@ -112,7 +114,7 @@ class Taxation:
             index = False  # The tax year was not found, so return FALSE from the function.
             return (index)
 
-        for k, dk in self.tax_table_all_data.iteritems():  # Read the elements of the dictionary for the given index into a new dictionary called tax_table.
+        for k, dk in self.tax_table_all_data.items():  # Read the elements of the dictionary for the given index into a new dictionary called tax_table.
             tax_table[k] = dk[index]
 
         return (tax_table)  # Return the tax_table dictionary for use.
@@ -125,14 +127,11 @@ class Taxation:
             if myinput < 0:
                 self.error_message = 'The value given is less than zero'
                 return False
-            elif isinstance(myinput, basestring):
-                self.error_message = 'The value given is a string, not a number or float'
-                return False
             else:
                 myinput = float(myinput)
                 return True
-        except ValueError, e:
-            self.error_message = 'Error is : {}'.format(e)
+        except Exception as e:
+            print("Error : " + str(e))
             return False
 
     def get_version(self):
@@ -171,8 +170,8 @@ class Taxation:
             else:
                 return round(nic, 2)  # Return ANNUAL nic amount
 
-        except ValueError, error_message:
-            print error_message
+        except Exception as e:
+            print("Error : " + str(e))
             return False
 
     def calculate_employer_ni(self, salary, monthly=True):
@@ -210,8 +209,8 @@ class Taxation:
             else:
                 return round(nic, 2)  # Return ANNUAL nic amount
 
-        except ValueError, error_message:
-            print error_message
+        except Exception as e:
+            print("Error : " + str(e))
             return False
 
     def calculate_paye(self, salary, monthly=True):
@@ -287,8 +286,8 @@ class Taxation:
             else:
                 return round(paye, 2)  # Return ANNUAL amount
 
-        except ValueError, error_message:
-            print error_message
+        except Exception as e:
+            print("Error : " + str(e))
             return False
 
     def calculate_student_loans(self, salary, plan, monthly=True):
@@ -330,8 +329,8 @@ class Taxation:
             else:
                 return round(sl_repayment, 2)  # Return ANNUAL amount
 
-        except ValueError, error_message:
-            print error_message
+        except Exception as e:
+            print("Error : " + str(e))
             return False
 
     def print_tax_ticket(self, salary, plan):
@@ -341,7 +340,6 @@ class Taxation:
         sl = self.calculate_student_loans(salary, plan)
         net_pay_monthly = (salary / 12) - paye - sl - eeni
 
-        print
         print("Tax Receipt for tax year {}".format(self.tax_table['tax-year']))
         print("------------------------------------------")
         print("Gross Annual Pay                 : £{:10,.2f}".format(salary))
@@ -354,14 +352,13 @@ class Taxation:
         print("Net Monthly Pay        (monthly) : £{:10,.2f}".format(net_pay_monthly))
         print("------------------------------------------")
         print("Total Tax              (monthly) : £{:10,.2f}\n".format(paye + eeni + erni + sl))
-        print
         return
 
 
 def main():
     my_tax = Taxation(full_time=True, student_loan_plan=0, hours_per_week=40, tax_year='2017-2018')
     if not my_tax.tax_table:
-        print "Major fuck up"
+        print("Major fuck up")
     else:
         my_tax.print_tax_ticket(100000, my_tax.student_loan_plan)
 
