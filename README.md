@@ -1,11 +1,11 @@
-# paye-calculator
-A Python class which calculates PAYE, National Insurance (N.I.), Employer's N.I. and Student Loan Repayment Deductions for the U.K. tax system for 2016-2017.
+# pyPAYE - A PAYE and NI Caluclator class for Python.
+A Python class which calculates PAYE, National Insurance (N.I.), Employer's N.I. and Student Loan Repayment Deductions for the U.K. tax system for 2016-2017, 2017-2018 and 2018-2019.
  
 # Installation
  
 You can download the class by either..
 
-(a) Clicking the 'Clone or download' button above, top right at https://github.com/farterland/paye-calculator and downloading the package to a directory of your choice.
+(a) Clicking the 'Clone or download' button above, top right at https://github.com/clicktechnology/pyPAYE.git and downloading the package to a directory of your choice.
 
 or
 
@@ -25,7 +25,7 @@ sudo apt-get install -y git
 ..entering your logon password to start the installation, if required.  Once installed, now type..
 
 ```
-git clone https://github.com/farterland/paye-calculator
+git clone https://github.com/clicktechnology/pyPAYE.git
 ```
 
 and press return.  The paye module is downloaded to a subdirectory called paye-calculator.  Go straight there by typing..
