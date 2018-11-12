@@ -31,7 +31,7 @@ git clone https://github.com/clicktechnology/pyPAYE.git
 and press return.  The paye module is downloaded to a subdirectory called paye-calculator.  Go straight there by typing..
 
 ```
-cd paye-calculator
+cd pyPAYE
 ```
 
 Now the class has been downloaded, you can install it by typing
