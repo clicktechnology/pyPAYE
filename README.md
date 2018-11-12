@@ -67,19 +67,13 @@ from taxation import Taxation
 Now let's create a Taxation object from the Taxation class with the command
 
 ```
-my_tax_object = Taxation()
+myEmployee = Taxation(full_time=True, student_loan=True, hours_per_week=40, tax_year='2018-2019')
 ```
 
-OK, let's calculate the PAYE payable in 2016-2017 for say, £35,000
+OK, let's print the PAYE payable in 2018-2019 for say, £50,000 salary, where the = indicates there is no student loan repayment.
 
 ```
-print "PAYE on £35,000 annually is £{:6,.2f} per month.".format(my_tax_object.calculate_paye(35000))
-```
-
-While the above is perfect, the line below demonstrates the class at its most basic.  Both lines work, but I'll use the one above for the purposes of nice formatting and demonstration.
-
-```
-print my_tax_object.calculate_paye(35000)
+myEmployee.print_tax_ticket(50000,0)
 ```
 
 The complete file should look like this..
@@ -90,8 +84,9 @@ The complete file should look like this..
         
 from taxation import Taxation
         
-my_tax_object = Taxation()
-print "PAYE on £35,000 annually is £{:6,.2f} per month.".format(my_tax_object.calculate_paye(35000))
+myEmployee = Taxation(full_time=True, student_loan=True, hours_per_week=40, tax_year='2018-2019')
+myEmployee.print_tax_ticket(50000,0)
+
 ```
 
 Now save and exit.  In the command line where the file is saved, type.. 
@@ -103,28 +98,17 @@ python ./mytax.py
 The result shown is..
 
 ```
-PAYE on £35,000 annually is £400.00 per month.
+Tax Receipt for tax year 2018-2019
+------------------------------------------
+Gross Annual Pay                 : £ 50,000.00
+Gross Monthly Pay                : £  4,166.67
+PAYE                   (monthly) : £    696.65
+Student Loans PLAN 0   (monthly) : £      0.00
+Employee NI            (monthly) : £    385.34
+Employer NI            (monthly) : £    478.12
+------------------------------------------
+Net Monthly Pay        (monthly) : £  3,084.68
+------------------------------------------
+Total Tax              (monthly) : £  1,560.
 ```
-
-If you want the annual PAYE payable, simply change the default monthly parameter to 'False' as shown below..
-
-```
-print "PAYE on £35,000 annually is £{:6,.2f} per annum.".format(my_tax_object.calculate_paye(35000, False))
-```
-
-and then save and re-run to get..
-```
-PAYE on £35,000 annually is £4,800.00 per annum.
-```
-
 In the root of the package, the file called test.py contains additional calculations and examples of the calculation of Employer's NI, Employee's NI and Student Loan Repayments for both Plan 1 and Plan 2 repayment options.  If you have any problems, feel free to contact me at askaquestion@click-technology.com
-
-The MIT License
-------------------------------------------------------------------
-Copyright 2018 Morgan Conlon
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
